@@ -123,17 +123,6 @@ function AuthForm({ onSubmit, title }) {
               </div>
             )}
 
-            {title === "Login" && (
-              <div className="flex items-center justify-end mt-4">
-                <RouterLink
-                  to="/forgot-password"
-                  className="text-sm text-green-600 hover:text-green-700 font-medium transition-colors"
-                >
-                  Forgot password?
-                </RouterLink>
-              </div>
-            )}
-
             <button
               type="submit"
               className="w-full h-11 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl mt-6 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
@@ -158,12 +147,6 @@ function AuthForm({ onSubmit, title }) {
               <span className="bg-white px-2 text-gray-500">Or</span>
             </div>
           </div>
-
-          <button
-            className="w-full h-11 border border-gray-200 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors bg-white"
-          >
-            Continue with Google
-          </button>
 
           <div className="text-center text-sm text-gray-600">
             {title === "Login" ? "Don't have an account?" : "Already have an account?"}{" "}

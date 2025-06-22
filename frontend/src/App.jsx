@@ -6,9 +6,17 @@ const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 
 function Home() {
+  const { logout } = useAuth();
+
   return (
-    <div className="flex items-center justify-center min-h-screen w-full">
-      <h1 className="text-3xl text-center">Welcome to Smart Habit Tracker</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen w-full">
+      <h1 className="text-3xl text-center mb-6">Welcome to Smart Habit Tracker</h1>
+      <button
+        onClick={logout}
+        className="px-4 py-2 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition"
+      >
+        Logout
+      </button>
     </div>
   );
 }
