@@ -19,10 +19,20 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "express-rate-limit": "^7.0.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.16.0"
+    "moment": "^2.30.1",
+    "mongoose": "^8.16.0",
+    "node-cron": "^4.1.1",
+    "nodemailer": "^7.0.3",
+    "recharts": "^2.15.4",
+    "swagger-ui-express": "^4.6.3",
+    "winston": "^3.10.0"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.1.10"
   }
 }

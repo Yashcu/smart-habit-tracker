@@ -3,3 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.color-empty {
+    fill: #ebedf0;
+  }
+.color-scale-1 {
+    fill: #0ea5e9;
+  }
+  

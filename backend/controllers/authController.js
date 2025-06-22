@@ -1,5 +1,11 @@
+/**
+ * Auth Controller
+ * Handles user registration and login
+ */
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const moment = require('moment');
+const logger = require('../config/logger');
 
 const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -7,6 +13,9 @@ const generateToken = (id) => {
     });
 };
 
+/**
+ * Register a new user
+ */
 exports.registerUser = async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -29,10 +38,14 @@ exports.registerUser = async (req, res) => {
         }
     }
     catch (error) {
+        logger.error(error);
         res.status(500).json({ message: 'Server error' });
     }
 };
 
+/**
+ * Login a user
+ */
 exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
@@ -50,8 +63,32 @@ exports.loginUser = async (req, res) => {
         }
     }
     catch (error) {
+        logger.error(error);
         res.status(500).json({ message: 'Server error' });
     }
 };
 
-
+exports.checkInHabit = async (req, res) => {
+    const habit = await Habit.findById(req.params.id);
+    if (!habit || habit.user.toString() !== req.user._id.toString()) {
+      return res.status(404).json({ message: 'Habit not found' });
+    }
+  
+    const now = moment().startOf('day');
+    const last = habit.lastCompleted ? moment(habit.lastCompleted).startOf('day') : null;
+  
+    if (last && now.isSame(last)) {
+      return res.status(400).json({ message: 'Already checked in today' });
+    }
+  
+    if (last && now.diff(last, 'days') === 1) {
+      habit.currentStreak += 1;
+    } else {
+      habit.currentStreak = 1;
+    }
+  
+    habit.lastCompleted = now.toDate();
+    await habit.save();
+  
+    res.json(habit);
+  };

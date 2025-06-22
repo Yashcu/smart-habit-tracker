@@ -1,12 +1,38 @@
-# React + Vite
+# Smart Habit Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, full-stack habit tracking app with streak analytics, built with React (Vite) frontend and Node/Express/MongoDB backend.
 
-Currently, two official plugins are available:
+## Features
+- User registration & login (JWT auth)
+- Create, view, and delete habits
+- Daily/weekly habit tracking
+- Streak tracking and check-in history
+- Visual analytics (streak chart)
+- Responsive, modern UI (Tailwind CSS, Framer Motion)
+- Secure backend (rate limiting, helmet, validation)
+- API documentation (Swagger/OpenAPI)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend:** React, Vite, Tailwind CSS, Framer Motion, Recharts
+- **Backend:** Node.js, Express, MongoDB, Mongoose, JWT, Winston, Helmet, express-validator, Swagger
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+1. `cd backend`
+2. `npm install`
+3. Create a `.env` file with `MONGO_URI=your_mongodb_uri` and `JWT_SECRET=your_secret`
+4. `npm run dev` (or `npm start`)
+5. API docs at [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
+
+### Frontend
+1. `cd frontend`
+2. `npm install`
+3. `npm run dev`
+
+## Testing
+- Backend: `npm test` (Jest)
+- Frontend: (add tests with Jest/React Testing Library)
+
+## License
+MIT

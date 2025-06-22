@@ -8,12 +8,14 @@ function Login() {
   const { login: loginUser } = useAuth();
   const navigate = useNavigate();
 
+  // Memoized handleSubmit to avoid unnecessary re-renders
   const handleSubmit = useCallback(async (data) => {
     try {
       const res = await login(data);
       loginUser(res.data);
       navigate('/');
     } catch (err) {
+      // Show error message from API or fallback
       throw new Error(err.response?.data?.message || 'Login failed. Please try again.');
     }
   }, [loginUser, navigate]);
